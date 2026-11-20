@@ -2,9 +2,10 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta name="site-version" content="v1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pohutukawa House Annex</title>
-<meta name="description" content="A one-bedroom Victorian annex on Portobello promenade, Edinburgh. Sea views over the Firth of Forth, wood burner, original shutters. Sleeps 2.">
+<meta name="description" content="A one-bedroom annex in a Category B listed Rogue Baronial villa (1869) on Portobello promenade, Edinburgh's famous sea-swimming beach. Sea views over the Firth of Forth, wood burner, sauna 100 m away. Sleeps 2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -111,6 +112,9 @@ figcaption{font-size:14px;color:var(--soft);margin-top:8px}
 .cols h3{padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:12px}
 .cols ul{list-style:none;margin:0;padding:0}
 .cols li{padding:9px 0;border-bottom:1px solid var(--line)}
+.cols p{margin:0}
+.aerial{margin-top:28px}
+.aerial .frame{aspect-ratio:16/9}
 
 /* location */
 .places{display:grid;gap:0;margin-top:8px}
@@ -128,6 +132,11 @@ figcaption{font-size:14px;color:var(--soft);margin-top:8px}
 footer{padding:28px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
 
+.years{list-style:none;margin:0;padding:0}
+.years li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.years li:first-child{border-top:2px solid var(--ink)}
+.years b{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;white-space:nowrap}
+.years span{color:var(--soft)}
 /* lightbox */
 dialog{border:0;padding:0;background:transparent;max-width:min(1400px,94vw);max-height:92vh}
 dialog::backdrop{background:rgba(8,14,16,.88)}
@@ -144,7 +153,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
     Pohutukawa House
   </a>
   <nav class="nav" aria-label="Sections">
-    <a href="#stay">The annex</a><a href="#rooms">Rooms</a><a href="#features">What's included</a><a href="#location">Location</a><a href="#book">Book</a>
+    <a href="#stay">The Annex</a><a href="#history">History</a><a href="#rooms">Rooms</a><a href="#features">What's included</a><a href="#swim">Swimming</a><a href="#location">Location</a><a href="#book">Book</a>
   </nav>
   <a class="btn airbnb" href="#book">Book on Airbnb</a>
 </div></header>
@@ -154,7 +163,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
   <img src="images/hero-bay-bluehour.jpg" alt="The living room bay window at blue hour, looking over the promenade railings to the Firth of Forth" fetchpriority="high">
   <div class="slab">
     <h1>The Annex at Pohutukawa House</h1>
-    <p>A one-bedroom Victorian hideaway on Portobello promenade. The beach is across the road, and the Firth of Forth fills the bay window.</p>
+    <p>A one-bedroom Victorian hideaway on Portobello promenade, Edinburgh's famous swimming beach. The sand is across the road, and the Firth of Forth fills the bay window.</p>
     <div class="btns"><a class="btn airbnb" href="#book">Book on Airbnb</a><a class="btn ghost" href="#rooms">See the rooms</a></div>
   </div>
 </section>
@@ -170,14 +179,31 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 <section class="band" id="stay"><div class="wrap split">
   <div class="txt">
     <h2>Sea on one side, Edinburgh on the other</h2>
-    <p>The annex is the single-storey wing of Pohutukawa House, a large Victorian villa facing straight onto the promenade. It has its own front door, and it's yours alone for the stay.</p>
+    <p>The Annex is the single-storey wing of Pohutukawa House, a Category B listed Rogue Baronial villa facing straight onto the promenade: turret, carved sandstone and all. It has its own front door, and it's yours alone for the stay.</p>
     <p>It's been fully restored: original cornicing, working timber shutters, a marble fireplace with a wood burner, and a new kitchen and shower room built to a high standard.</p>
     <p>Mornings mean light over the water. Evenings mean the fire lit and the promenade lamps coming on below the bay.</p>
   </div>
-  <div data-photo="view"></div>
+  <div data-photo="front"></div>
 </div></section>
 
-<section class="band" id="rooms" style="padding-top:0"><div class="wrap">
+<section class="band sage" id="history"><div class="wrap split">
+  <div class="txt">
+    <h2>A house with a story</h2>
+    <p>Pohutukawa House was designed around 1869 by James Campbell Walker, a leading Edinburgh architect better known for schools and civic buildings. It was one of three villas he built side by side on the Portobello waterfront, each in an eclectic Baronial style and each a different design.</p>
+    <p>Today it's Category B listed and sits within the Portobello Conservation Area. Its listing calls it Rogue Baronial, a fair description of all that turret, carving and invention.</p>
+    <p>Locals may remember it as a hotel, or as the Dalriada bar. Now it's a home again, and The Annex is its newest chapter.</p>
+  </div>
+  <ol class="years">
+    <li><b>1869</b><span>Built by James Campbell Walker, one of three waterfront villas</span></li>
+    <li><b>c. 1970</b><span>Becomes the Temple Hall Hotel</span></li>
+    <li><b>1989</b><span>Listed Category B</span></li>
+    <li><b>2000s</b><span>The Dalriada bar opens downstairs, with homes above</span></li>
+    <li><b>2020</b><span>The Dalriada closes its doors</span></li>
+    <li><b>Today</b><span>Restored as a family home, with The Annex for guests</span></li>
+  </ol>
+</div></section>
+
+<section class="band" id="rooms"><div class="wrap">
   <div class="room">
     <div class="roomhead"><h2>Living room and kitchen</h2><p>One open room under a high Victorian ceiling. Sofa in the bay, wingback by the fire, and a breakfast bar for three on the island.</p></div>
     <div class="gallery" data-set="living"></div>
@@ -201,19 +227,30 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
   </div>
 </div></section>
 
-<section class="band" id="location"><div class="wrap split rev">
+<section class="band" id="swim"><div class="wrap">
+  <div class="roomhead"><h2>Swim, sauna, repeat</h2><p>Portobello is one of Scotland's best-known sea-swimming beaches. All year round, whatever the weather, swimmers are in the Forth at dawn, at lunch and at sunset. The Annex is right in the middle of it.</p></div>
+  <div class="aerial"><div data-photo="aerial"></div></div>
+  <div class="cols">
+    <div><h3>Sea swimming</h3><p>Join the regulars. The Edinburgh Bluetits and the Edinburgh Blue Balls swim here every week, and newcomers are welcome. RNLI lifeguards patrol the beach in summer.</p></div>
+    <div><h3>Soul Water Sauna</h3><p>Edinburgh's first wood-fired sauna sits on the promenade, about 100 metres from the door. Book a slot, dip in the sea, warm up, go again.</p></div>
+    <div><h3>Victorian Turkish baths</h3><p>Portobello Swim Centre, built in 1898, still has its original Turkish baths and steam room, along with an indoor pool for days the sea is too wild.</p></div>
+  </div>
+</div></section>
+
+<section class="band sage" id="location"><div class="wrap split rev">
   <div class="txt">
     <h2>Portobello, Edinburgh's beach</h2>
-    <p>Portobello is Edinburgh's seaside: two miles of sand, a Victorian promenade, cafés and the old swimming baths. Walk out of the gate and you're on it.</p>
+    <p>Portobello is Edinburgh's seaside: two miles of sand, a Victorian promenade, cafés, ice cream and independent shops. Walk out of the gate and you're on it.</p>
     <p>The city centre is about three miles away, an easy bus ride. That puts you close enough for the Festival in August and Hogmanay at New Year, then back by the sea to sleep.</p>
     <div class="places">
       <div>Promenade and beach<span>On the doorstep</span></div>
+      <div>Soul Water Sauna<span>About 100 m</span></div>
       <div>Edinburgh city centre<span>About 3 miles</span></div>
       <div>Festival and Fringe<span>August</span></div>
       <div>Hogmanay<span>New Year</span></div>
     </div>
   </div>
-  <div data-photo="railings"></div>
+  <div data-photo="city"></div>
 </div></section>
 
 <section class="band book" id="book"><div class="wrap split">
@@ -226,7 +263,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
   <ul class="rules">
     <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#c4232f"/></svg>Maximum 2 guests</li>
     <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#c4232f"/></svg>No pets</li>
-    <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#c4232f"/></svg>Guide to the shutters and stove in the annex</li>
+    <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#c4232f"/></svg>Guide to the shutters and stove in The Annex</li>
   </ul>
 </div></section>
 </main>
@@ -245,9 +282,10 @@ const AIRBNB_URL = "";
 
 const P = {
   hero:   {fix:"Retake at blue hour with the chandelier switched off and only the lamps on. Use a tripod and timer and step out of the window's reflection (you're faintly visible in the centre pane). Shoot about 10 minutes earlier so the railings keep their detail."},
-  view:   {src:"view-dusk", alt:"Dusk over the Firth of Forth from the bay window", cap:"The view from the sofa at dusk", fix:"Retake once the front garden landscaping is finished, at the same time of day. For now you could crop it just above the garden wall."},
-  railings: {src:"bay-railings", alt:"The bay window at blue hour, promenade railings and the Firth of Forth beyond", cap:"Promenade railings and the Forth from the bay", fix:"The chandelier is reflected in the glass. Switch it off, light the room with lamps only, and shoot a few minutes earlier while there's still light in the sky."}
 };
+P.front = {src:"house-front", alt:"The front of Pohutukawa House, a listed Rogue Baronial villa in sandstone with a turret; The Annex is the single-storey wing with the bay window on the right", cap:"The Annex is the bay-windowed wing on the right", fix:"This looks like a landscaping visualisation, with added planting, birds and retouched windows. Replace it with a real photo once the front garden is finished, so guests see the house as it really is."};
+P.city = {src:"aerial-city", alt:"Aerial view of Pohutukawa House on Portobello promenade, with Arthur's Seat and the Pentland Hills behind", cap:"Beach in front, Arthur's Seat behind"};
+P.aerial = {src:"aerial-beach", alt:"Aerial view of Pohutukawa House with its turret, the promenade, Portobello beach and the Firth of Forth", cap:"Pohutukawa House, the promenade and two miles of sand", fix:"Lovely shot. Refly once the front garden is landscaped, ideally on a brighter day or at golden hour, so the bare soil by the promenade railings disappears."};
 const ISLAND = {half:1, src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
 const SETS = {
   living: [
