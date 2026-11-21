@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="v11">
+<meta name="site-version" content="v17">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pohutukawa House Annex</title>
 <meta name="description" content="A one-bedroom annex in a Category B listed Rogue Baronial villa (1869) on Portobello promenade, Edinburgh's famous sea-swimming beach. Sea views over the Firth of Forth, wood burner, sauna 100 m away. Sleeps 2.">
@@ -163,7 +163,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 
 <main id="top">
 <section class="hero" aria-label="The view from the living room">
-  <img src="images/hero-bay-bluehour.jpg" alt="The living room bay window at blue hour, looking over the promenade railings to the Firth of Forth" fetchpriority="high">
+  <img src="images/hero-bay-bluehour.jpg?v=17" alt="The living room bay window at blue hour, looking over the promenade railings to the Firth of Forth" fetchpriority="high">
   <div class="slab">
     <h1>The Annex at Pohutukawa House</h1>
     <p>A one-bedroom Victorian hideaway on Portobello promenade, Edinburgh's famous swimming beach. The sand is across the road, and the Firth of Forth fills the bay window.</p>
@@ -191,7 +191,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 
 <section class="band" id="rooms" style="padding-top:0"><div class="wrap">
   <div class="room">
-    <div class="roomhead"><h2>Living room and kitchen</h2><p>One open room under a high Victorian ceiling. Sofa in the bay, wingback by the fire, and a breakfast bar for three on the island.</p></div>
+    <div class="roomhead"><h2>Living room and kitchen</h2><p>One open room under a high Victorian ceiling, with a skylight high above the hall end. Sofa in the bay, wingback by the fire, and a breakfast bar for three on the island.</p></div>
     <div class="gallery" data-set="living"></div>
   </div>
   <div class="room">
@@ -211,9 +211,9 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 <section class="band sage" id="features"><div class="wrap">
   <h2>What's included</h2>
   <div class="cols">
-    <div><h3>Kitchen</h3><ul><li>Oven and induction hob</li><li>Large fridge-freezer</li><li>Kettle, toaster and cafetière</li><li>Pots, pans and tableware</li><li>Dishwasher</li><li>Washing machine and tumble dryer</li></ul></div>
+    <div><h3>Kitchen</h3><ul><li>Oven and induction hob</li><li>Large fridge-freezer</li><li>Kettle, toaster and cafetière</li><li>Pots, pans and tableware</li><li>Dishwasher</li><li>Washing machine and tumble dryer</li><li>Cordless hoover and spray mop in the hall cupboard, dustpan and brush under the sink</li></ul></div>
     <div><h3>Comfort</h3><ul><li>Wood-burning stove</li><li>Original working shutters, no curtains</li><li>TV, books and games</li><li>Heated towel rail</li><li>Linen and towels</li><li>Patio for your exclusive use, with table and chairs</li></ul></div>
-    <div><h3>Peace of mind</h3><ul><li>Grade A fire alarm system</li><li>CO alarms linked to the fire alarm</li><li>Chimney swept every year</li><li>Hosts living in the main house</li><li>Private entrance</li></ul></div>
+    <div><h3>Peace of mind</h3><ul><li>Grade A fire alarm system</li><li>CO alarms linked to the fire alarm</li><li>Chimney swept every year</li><li>Hosts living in the main house</li><li>Private entrance</li><li>Fully self-contained, with the connecting doors to the main house kept locked</li></ul></div>
   </div>
 </div></section>
 
@@ -293,14 +293,15 @@ const P = {
 P.front = {src:"house-front", alt:"The front of Pohutukawa House, a listed Rogue Baronial villa in sandstone with a turret; The Annex is the single-storey wing with the bay window on the right", cap:"The Annex is the bay-windowed wing on the right", fix:"This looks like a landscaping visualisation, with added planting, birds and retouched windows. Replace it with a real photo once the front garden is finished, so guests see the house as it really is."};
 P.city = {src:"aerial-city", alt:"Aerial view of Pohutukawa House on Portobello promenade, with Arthur's Seat and the Pentland Hills behind", cap:"Beach in front, Arthur's Seat behind"};
 P.aerial = {src:"aerial-beach", alt:"Aerial view of Pohutukawa House with its turret, the promenade, Portobello beach and the Firth of Forth", cap:"Pohutukawa House, the promenade and two miles of sand", fix:"Lovely shot. Refly once the front garden is landscaped, ideally on a brighter day or at golden hour, so the bare soil by the promenade railings disappears."};
-const ISLAND = {half:1, src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
+const ISLAND = {src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
 const SETS = {
   living: [
     {src:"living-bay", alt:"Living room with sofa in the bay window, wingback chair and pendant lights", cap:"The bay, the fire and the island", big:1},
     {src:"fireplace", alt:"Marble fireplace with wood burner, log baskets and a wingback chair", cap:"Wood burner in the original marble fireplace", fix:"You're reflected in the mirror above the fireplace. Shoot from a little to one side, or crop and edit the reflection out."},
     {src:"kitchen-wide", alt:"Teal kitchen with island, breakfast stools and artwork", cap:"Kitchen with breakfast bar for three", fix:"You're reflected in the black glass splashback. Shoot from a different angle, and close the log basket lid."},
-    {src:"kitchen-units", alt:"Teal kitchen units with built-in oven and sink", cap:"Oven, induction hob and plenty of storage", half:1},
-    ISLAND
+    {src:"kitchen-units", alt:"Teal kitchen units with built-in oven and sink", cap:"Oven, induction hob and plenty of storage"},
+    ISLAND,
+    {src:"skylight", alt:"High skylight above the hallway end of the living room, with original panelled doors below", cap:"High skylight over the hall end of the room", top:1}
   ],
   bedroom: [
     {src:"bedroom-front", alt:"Bedroom with cane-headed bed, bedside lamps and framed jellyfish prints", cap:"King-size bed under the jellyfish prints", big:1, fix:"Press or smooth the bedding so it looks crisp, and hang a few matching wooden hangers on the rail."},
@@ -321,7 +322,8 @@ const SETS = {
 
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const badge = fix => `<button type="button" class="ph" aria-label="Placeholder photo. ${esc(fix)}">Placeholder<span class="tip" role="tooltip"><b>Retake needed</b>${esc(fix)}</span></button>`;
-const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" tall":""}${p.half?" half":""}${p.wide?" wide":""}"><div class="frame">${p.fix?badge(p.fix):""}<img loading="lazy" src="images/${p.src}.jpg" alt="${esc(p.alt)}" data-cap="${esc(p.cap)}"></div><figcaption>${p.cap}</figcaption></figure>`;
+const VER = (document.querySelector('meta[name="site-version"]')?.content || "").replace("v","");
+const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" tall":""}${p.half?" half":""}${p.wide?" wide":""}"><div class="frame">${p.fix?badge(p.fix):""}<img loading="lazy"${p.top?' style="object-position:center 8%"':''} src="images/${p.src}.jpg?v=${VER}" alt="${esc(p.alt)}" data-cap="${esc(p.cap)}"></div><figcaption>${p.cap}</figcaption></figure>`;
 
 for (const el of document.querySelectorAll("[data-set]")) el.innerHTML = SETS[el.dataset.set].map(p => fig(p)).join("");
 for (const el of document.querySelectorAll("[data-photo]")) el.outerHTML = fig(P[el.dataset.photo]);
