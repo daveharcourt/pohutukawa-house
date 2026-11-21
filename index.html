@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="v8">
+<meta name="site-version" content="v9">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pohutukawa House Annex</title>
 <meta name="description" content="A one-bedroom annex in a Category B listed Rogue Baronial villa (1869) on Portobello promenade, Edinburgh's famous sea-swimming beach. Sea views over the Firth of Forth, wood burner, sauna 100 m away. Sleeps 2.">
@@ -115,6 +115,8 @@ figcaption{font-size:14px;color:var(--soft);margin-top:8px}
 .cols p{margin:0}
 .aerial{margin-top:28px}
 .aerial .frame{aspect-ratio:16/9}
+.patio{margin-top:28px;max-width:720px}
+.patio .frame{aspect-ratio:4/3}
 
 /* location */
 .places{display:grid;gap:0;margin-top:8px}
@@ -208,6 +210,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
     <div><h3>Comfort</h3><ul><li>Wood-burning stove</li><li>Original working shutters, no curtains</li><li>TV, books and games</li><li>Heated towel rail</li><li>Linen and towels</li><li>Patio for your exclusive use, with table and chairs</li></ul></div>
     <div><h3>Peace of mind</h3><ul><li>Grade A fire alarm system</li><li>CO alarms linked to the fire alarm</li><li>Chimney swept every year</li><li>Hosts living in the main house</li><li>Private entrance</li></ul></div>
   </div>
+  <div class="patio"><div data-photo="patio"></div></div>
 </div></section>
 
 <section class="band" id="swim"><div class="wrap">
@@ -284,6 +287,7 @@ const P = {
   hero:   {fix:"Retake at blue hour with the chandelier switched off and only the lamps on. Use a tripod and timer and step out of the window's reflection (you're faintly visible in the centre pane). Shoot about 10 minutes earlier so the railings keep their detail."},
 };
 P.front = {src:"house-front", alt:"The front of Pohutukawa House, a listed Rogue Baronial villa in sandstone with a turret; The Annex is the single-storey wing with the bay window on the right", cap:"The Annex is the bay-windowed wing on the right", fix:"This looks like a landscaping visualisation, with added planting, birds and retouched windows. Replace it with a real photo once the front garden is finished, so guests see the house as it really is."};
+P.patio = {src:"patio", alt:"The Annex's private patio area beside a planted bed and the old stone garden wall", cap:"Your private patio, tucked against the old garden wall", fix:"Awaiting a photo of the table and two chairs set out on the patio. Take it once the garden is finished, ideally in soft morning or evening light with a couple of mugs or glasses on the table."};
 P.city = {src:"aerial-city", alt:"Aerial view of Pohutukawa House on Portobello promenade, with Arthur's Seat and the Pentland Hills behind", cap:"Beach in front, Arthur's Seat behind"};
 P.aerial = {src:"aerial-beach", alt:"Aerial view of Pohutukawa House with its turret, the promenade, Portobello beach and the Firth of Forth", cap:"Pohutukawa House, the promenade and two miles of sand", fix:"Lovely shot. Refly once the front garden is landscaped, ideally on a brighter day or at golden hour, so the bare soil by the promenade railings disappears."};
 const ISLAND = {half:1, src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
