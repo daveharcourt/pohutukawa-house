@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="v10">
+<meta name="site-version" content="v11">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pohutukawa House Annex</title>
 <meta name="description" content="A one-bedroom annex in a Category B listed Rogue Baronial villa (1869) on Portobello promenade, Edinburgh's famous sea-swimming beach. Sea views over the Firth of Forth, wood burner, sauna 100 m away. Sleeps 2.">
@@ -204,7 +204,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
   </div>
   <div class="room">
     <div class="roomhead"><h2>Patio</h2><p>Your own patio, for your exclusive use, with a table and two chairs. Tucked against the old garden wall, it's the spot for morning coffee or a drink after a swim.</p></div>
-    <div class="patio"><div data-photo="patio"></div></div>
+    <div class="gallery" data-set="patio"></div>
   </div>
 </div></section>
 
@@ -291,7 +291,6 @@ const P = {
   hero:   {fix:"Retake at blue hour with the chandelier switched off and only the lamps on. Use a tripod and timer and step out of the window's reflection (you're faintly visible in the centre pane). Shoot about 10 minutes earlier so the railings keep their detail."},
 };
 P.front = {src:"house-front", alt:"The front of Pohutukawa House, a listed Rogue Baronial villa in sandstone with a turret; The Annex is the single-storey wing with the bay window on the right", cap:"The Annex is the bay-windowed wing on the right", fix:"This looks like a landscaping visualisation, with added planting, birds and retouched windows. Replace it with a real photo once the front garden is finished, so guests see the house as it really is."};
-P.patio = {src:"patio", alt:"The Annex's private patio area beside a planted bed and the old stone garden wall", cap:"Your private patio, tucked against the old garden wall", fix:"Awaiting a photo of the table and two chairs set out on the patio. Take it once the garden is finished, ideally in soft morning or evening light with a couple of mugs or glasses on the table."};
 P.city = {src:"aerial-city", alt:"Aerial view of Pohutukawa House on Portobello promenade, with Arthur's Seat and the Pentland Hills behind", cap:"Beach in front, Arthur's Seat behind"};
 P.aerial = {src:"aerial-beach", alt:"Aerial view of Pohutukawa House with its turret, the promenade, Portobello beach and the Firth of Forth", cap:"Pohutukawa House, the promenade and two miles of sand", fix:"Lovely shot. Refly once the front garden is landscaped, ideally on a brighter day or at golden hour, so the bare soil by the promenade railings disappears."};
 const ISLAND = {half:1, src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
@@ -307,6 +306,10 @@ const SETS = {
     {src:"bedroom-front", alt:"Bedroom with cane-headed bed, bedside lamps and framed jellyfish prints", cap:"King-size bed under the jellyfish prints", big:1, fix:"Press or smooth the bedding so it looks crisp, and hang a few matching wooden hangers on the rail."},
     {src:"bedroom-lamps", alt:"Bedroom in warm lamplight with sash window and shutters", cap:"Lamplight and original shutters", fix:"Retake once the privacy coating is on the lower pane, so the garden works aren't visible. Smooth the bedding too."},
     {src:"bedroom-chair", alt:"Bedroom with armchair, kilim rug and mountain prints", cap:"Armchair and room to unpack", fix:"Smooth the bedding and throw before reshooting."}
+  ],
+  patio: [
+    {src:"patio", alt:"Bistro table and two chairs on the stone-flagged patio against the old garden wall", cap:"Table for two against the old garden wall", half:1},
+    {src:"patio-sea", alt:"The patio at sunset, with the promenade railings and the Firth of Forth beyond", cap:"Sunset over the Forth from the patio", half:1, fix:"Great angle with the sunset and the sea. Retake once the front garden is finished, so the covers, soil heaps and stacked flags are gone."}
   ],
   shower: [
     {src:"shower-vanity", alt:"Shower room with backlit round mirror, long white vanity and walk-in shower", cap:"Backlit mirror with demister", big:1},
