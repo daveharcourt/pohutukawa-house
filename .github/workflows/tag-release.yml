@@ -1,0 +1,43 @@
+name: Tag release from site version
+
+on:
+  push:
+    branches: [main]
+    paths: ['index.html']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read site version from index.html
+        id: ver
+        run: |
+          v=$(grep -oP 'name="site-version" content="\Kv[0-9]+' index.html || true)
+          if [ -z "$v" ]; then
+            echo "No site-version meta tag found in index.html"
+            exit 1
+          fi
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: Create tag and release if this version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V: ${{ steps.ver.outputs.version }}
+        run: |
+          if git rev-parse -q --verify "refs/tags/$V" >/dev/null; then
+            echo "Tag $V already exists, nothing to do"
+          else
+            gh release create "$V" \
+              --target "$GITHUB_SHA" \
+              --title "$V" \
+              --notes "$(git log -1 --pretty=%B)"
+            echo "Created release $V"
+          fi
