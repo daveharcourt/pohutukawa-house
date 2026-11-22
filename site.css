@@ -174,3 +174,5 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .plan .frame{border-radius:4px;overflow:hidden}
 .plan img{width:100%;height:auto;display:block}
 .plan h3{margin-bottom:12px}
+.moneyshot .frame{aspect-ratio:16/9}
+@media(max-width:600px){.moneyshot .frame{aspect-ratio:4/3}}
