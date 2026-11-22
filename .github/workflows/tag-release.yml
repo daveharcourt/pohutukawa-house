@@ -34,10 +34,16 @@ jobs:
         run: |
           if git rev-parse -q --verify "refs/tags/$V" >/dev/null; then
             echo "Tag $V already exists, nothing to do"
-          else
-            gh release create "$V" \
-              --target "$GITHUB_SHA" \
-              --title "$V" \
-              --notes "$(git log -1 --pretty=%B)"
-            echo "Created release $V"
+            exit 0
           fi
+          # Use the commit summary, or the description if the summary is GitHub's default
+          msg=$(git log -1 --pretty=%s)
+          case "$msg" in
+            "Add files via upload"|"Update "*|"Create "*|"")
+              body=$(git log -1 --pretty=%b | sed '/^\s*$/d' | head -1)
+              [ -n "$body" ] && msg="$body" ;;
+          esac
+          title="$msg"
+          case "$title" in "$V"*) ;; *) title="$V: $title" ;; esac
+          gh release create "$V" --target "$GITHUB_SHA" --title "$title" --notes "$msg"
+          echo "Created release $title"
