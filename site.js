@@ -44,6 +44,25 @@ const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" ta
 
 for (const el of document.querySelectorAll("[data-set]")) el.innerHTML = SETS[el.dataset.set].map(p => fig(p)).join("");
 for (const el of document.querySelectorAll("[data-photo]")) el.outerHTML = fig(P[el.dataset.photo]);
+
+// Carousels: data-carousel="annex" — slides scroll and snap, with arrows and dots
+const FIRE = {src:"fireplace", alt:"Marble fireplace with wood burner, log baskets and a wingback chair", cap:"A fire on in the original marble fireplace", fix:"Placeholder for a cosy shot with the wood burner lit. Shoot in the evening with the lamps on and the main lights off, fire burning well, from a little to one side so you're not reflected in the mirror above."};
+const CAROUSELS = { annex: [P.annexHero, SETS.patio[1], P.annexAir, P.aerial, FIRE, P.front] };
+for (const el of document.querySelectorAll("[data-carousel]")) {
+  const slides = CAROUSELS[el.dataset.carousel];
+  el.innerHTML = `<div class="ctrack" tabindex="0" aria-label="Photo carousel">${slides.map(p => fig(p, "cslide")).join("")}</div>
+    <button type="button" class="cbtn prev" aria-label="Previous photo">&#8249;</button><button type="button" class="cbtn next" aria-label="Next photo">&#8250;</button>
+    <div class="cdots">${slides.map((_, i) => `<button type="button" aria-label="Photo ${i + 1}"></button>`).join("")}</div>`;
+  const track = el.querySelector(".ctrack"), dots = [...el.querySelectorAll(".cdots button")];
+  const cur = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = i => track.scrollTo({left: ((i + slides.length) % slides.length) * track.clientWidth, behavior: "smooth"});
+  el.querySelector(".prev").onclick = () => go(cur() - 1);
+  el.querySelector(".next").onclick = () => go(cur() + 1);
+  dots.forEach((b, i) => b.onclick = () => go(i));
+  const mark = () => dots.forEach((b, i) => b.classList.toggle("on", i === cur()));
+  track.addEventListener("scroll", () => requestAnimationFrame(mark)); mark();
+  track.addEventListener("keydown", e => { if (e.key === "ArrowRight") go(cur() + 1); if (e.key === "ArrowLeft") go(cur() - 1); });
+}
 // Page icons: add data-icon="castle|sea|turret|bay" to a heading
 const ICONS = {
   castle: '<path d="M4 44c6-5 14-7 20-7s14 2 20 7"/><path d="M8 38V22h2v-3h2.5v3h2v-3H17v3h2v16"/><path d="M29 38V22h2v-3h2.5v3h2v-3H38v3h2v16"/><path d="M17.5 38V14h2v-3H22v3h4v-3h2.5v3h2v24"/><path d="M21 38v-6a3 3 0 0 1 6 0v6"/><path d="M24 11V4l5 1.5L24 7" fill="currentColor"/><path d="M12.5 28v3M35.5 28v3M24 20v3"/>',

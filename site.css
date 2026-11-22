@@ -249,3 +249,17 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .tthumb.tbd{display:block;background:repeating-linear-gradient(45deg,var(--sage),var(--sage) 6px,color-mix(in srgb,var(--sage) 80%,var(--ink) 6%) 6px,color-mix(in srgb,var(--sage) 80%,var(--ink) 6%) 12px);cursor:help}
 @media(max-width:600px){.years li{grid-template-columns:4.6em minmax(0,1fr)}.years li:has(.tthumb){grid-template-columns:4.6em minmax(0,1fr) 60px}.years b{font-size:20px}.tthumb{width:60px;height:60px}}
 #timeline .years li:has(.tthumb){grid-template-columns:6.5em minmax(0,1fr) 88px}#timeline .tthumb{width:88px;height:88px}@media(max-width:600px){#timeline .years li:has(.tthumb){grid-template-columns:4.6em minmax(0,1fr) 60px}#timeline .tthumb{width:60px;height:60px}}
+
+/* Carousel (v46) */
+.carousel{position:relative;margin-top:clamp(24px,3vw,36px)}
+.ctrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:6px}
+.ctrack::-webkit-scrollbar{display:none}
+.cslide{flex:0 0 100%;scroll-snap-align:start;margin:0}
+.cslide .frame{aspect-ratio:16/9}
+@media(max-width:600px){.cslide .frame{aspect-ratio:4/3}}
+.cbtn{position:absolute;top:calc(50% - 40px);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--ink);font-size:30px;line-height:40px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.cbtn.prev{left:12px}.cbtn.next{right:12px}
+.cbtn:hover{background:#fff}
+.cdots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.cdots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:color-mix(in srgb,var(--ink) 25%,transparent);cursor:pointer}
+.cdots button.on{background:var(--red)}
