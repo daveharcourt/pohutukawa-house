@@ -44,6 +44,16 @@ const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" ta
 
 for (const el of document.querySelectorAll("[data-set]")) el.innerHTML = SETS[el.dataset.set].map(p => fig(p)).join("");
 for (const el of document.querySelectorAll("[data-photo]")) el.outerHTML = fig(P[el.dataset.photo]);
+// Page icons: add data-icon="castle|sea|turret|bay" to a heading
+const ICONS = {
+  castle: '<path d="M4 44c6-5 14-7 20-7s14 2 20 7"/><path d="M8 38V22h2v-3h2.5v3h2v-3H17v3h2v16"/><path d="M29 38V22h2v-3h2.5v3h2v-3H38v3h2v16"/><path d="M17.5 38V14h2v-3H22v3h4v-3h2.5v3h2v24"/><path d="M21 38v-6a3 3 0 0 1 6 0v6"/><path d="M24 11V4l5 1.5L24 7" fill="currentColor"/><path d="M12.5 28v3M35.5 28v3M24 20v3"/>',
+  sea:    '<path d="M13 27a11 11 0 0 1 22 0"/><path d="M24 8v4M10.5 13.5l2.8 2.8M37.5 13.5l-2.8 2.8M5 27h4M39 27h4"/><path d="M4 33c3.3-2.4 6.7-2.4 10 0s6.7 2.4 10 0 6.7-2.4 10 0 6.7 2.4 10 0"/><path d="M4 40c3.3-2.4 6.7-2.4 10 0s6.7 2.4 10 0 6.7-2.4 10 0 6.7 2.4 10 0"/>',
+  turret: '<path d="M24 2v3"/><path d="M15 19L24 5l9 14z"/><path d="M14 19h20"/><path d="M16 19v25M32 19v25"/><path d="M21 31v-4a3 3 0 0 1 6 0v4z"/><path d="M16 37h16"/><path d="M8 44h32"/>',
+  bay:    '<path d="M4 44h40"/><path d="M6 44V18l8-6h20l8 6v26"/><path d="M9 23l5-2.5V39H9zM39 23l-5-2.5V39h5z"/><rect x="17" y="20" width="14" height="19"/><path d="M9 30.5h5M34 30.5h5M17 29.5h14M24 20v19"/>'
+};
+const icon = k => `<svg class="ico" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">${ICONS[k]}</svg>`;
+for (const h of document.querySelectorAll("[data-icon]")) h.insertAdjacentHTML("afterbegin", icon(h.dataset.icon));
+
 // Edinburgh feature photos: once a photo is in /images, add src:"<file name>" to its line and the placeholder goes
 const NEED = {
   fringeWide: {label:"Overall shot", alt:"The Royal Mile packed during the Edinburgh Festival Fringe", cap:"The Royal Mile packed during the Edinburgh Festival Fringe", fix:"The big overall shot: the Royal Mile in August, packed from end to end, ideally from above or with St Giles in view. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-fringe-wide.jpg"},
