@@ -178,3 +178,15 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 @media(max-width:600px){.moneyshot .frame{aspect-ratio:4/3}}
 .pagehead p.bigsell{color:var(--ink);font-size:clamp(18px,1.8vw,21px);font-weight:500;margin-top:14px;max-width:62ch;padding-left:16px;border-left:3px solid var(--red)}
 .pagehead:has(.bigsell){padding-bottom:clamp(28px,3vw,44px)}
+.events{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+@media(max-width:900px){.events{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.events{grid-template-columns:minmax(0,1fr)}}
+.event{display:block;text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:20px 22px;border-top:4px solid var(--red);transition:transform .2s}
+.event:hover{transform:translateY(-2px)}
+.event .when{display:block;font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px}
+.event h3{font-size:22px;margin:0 0 8px}
+.event p{margin:0 0 12px;color:var(--ink);font-size:15.5px}
+.event .go{font-weight:600;font-size:14.5px;color:var(--red)}
+.event .go::after{content:" \2197"}
+.pagehead p.eventsnote{color:var(--ink);font-weight:500;margin-top:14px;font-size:17px}
+.pagehead:has(.events){padding-bottom:clamp(32px,4vw,56px)}
