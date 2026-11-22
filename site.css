@@ -28,7 +28,7 @@ p{margin:0 0 1em;max-width:62ch}
 .nav{display:flex;gap:18px;flex-wrap:wrap}
 .nav a{text-decoration:none;color:var(--soft);font-weight:500;font-size:15px;padding:10px 0}
 .nav a:hover{color:var(--ink)}
-@media(max-width:720px){.nav{order:3;width:100%;flex-wrap:wrap;gap:2px 16px;margin-top:-4px}.nav a{white-space:nowrap;flex-shrink:0;padding:6px 0;font-size:14.5px}.nav a[href="#book"]{display:none}}
+@media(max-width:720px){.nav{order:3;width:100%;flex-wrap:wrap;gap:2px 16px;margin-top:-4px}.nav a{white-space:nowrap;flex-shrink:0;padding:6px 0;font-size:14.5px}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;font:600 15.5px/1 Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;background:var(--red);color:var(--red-ink);position:relative}
@@ -226,3 +226,10 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .credit{font-size:12.5px;color:var(--soft);margin:8px 0 0}
 .credit a{color:inherit}
 .shot figure{position:absolute;inset:0;margin:0}
+
+/* Portobello header photos (v33) */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:clamp(24px,3vw,36px)}
+.duo .frame{aspect-ratio:4/3}
+@media(max-width:640px){.duo{grid-template-columns:minmax(0,1fr)}}
+.band>.past:first-child{margin-top:0;padding-top:0;border-top:0}
+.pagehead p+p:not(.citynote){margin-top:12px}
