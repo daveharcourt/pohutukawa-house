@@ -90,9 +90,9 @@ figcaption{font-size:14px;color:var(--soft);margin-top:8px}
 @media(max-width:480px){.gallery{grid-template-columns:minmax(0,1fr)}.gallery figure,.gallery .big,.gallery .half{grid-column:auto}}
 .room{border-top:1px solid var(--line);padding-top:clamp(28px,4vw,52px);margin-top:clamp(28px,4vw,52px)}
 .room:first-of-type{border-top:0;margin-top:0;padding-top:0}
-.roomhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(16px,4vw,56px);align-items:end}
-@media(max-width:720px){.roomhead{grid-template-columns:minmax(0,1fr)}}
-.roomhead p{margin:0}
+.roomhead{display:block;max-width:68ch;margin-bottom:clamp(18px,2vw,26px)}
+.roomhead h2{margin:0 0 10px}
+.roomhead p{margin:0;color:var(--soft)}
 
 /* amenities */
 .sage{background:var(--sage)}

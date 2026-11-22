@@ -62,6 +62,16 @@ for (const el of document.querySelectorAll("[data-carousel]")) {
   const mark = () => dots.forEach((b, i) => b.classList.toggle("on", i === cur()));
   track.addEventListener("scroll", () => requestAnimationFrame(mark)); mark();
   track.addEventListener("keydown", e => { if (e.key === "ArrowRight") go(cur() + 1); if (e.key === "ArrowLeft") go(cur() - 1); });
+  // auto-advance every 3 seconds; pauses while hovered, focused, touched, off screen or in a background tab, and for reduced-motion users
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let paused = false, seen = true;
+    const hold = v => () => { paused = v; };
+    el.addEventListener("mouseenter", hold(true)); el.addEventListener("mouseleave", hold(false));
+    el.addEventListener("focusin", hold(true)); el.addEventListener("focusout", hold(false));
+    el.addEventListener("touchstart", hold(true), {passive: true});
+    new IntersectionObserver(es => { seen = es[0].isIntersecting; }).observe(el);
+    setInterval(() => { if (!paused && seen && !document.hidden && !document.querySelector("dialog[open]")) go(cur() + 1); }, 3000);
+  }
 }
 // Page icons: add data-icon="castle|sea|turret|bay" to a heading
 const ICONS = {
