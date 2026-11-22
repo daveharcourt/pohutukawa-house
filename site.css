@@ -221,3 +221,4 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 /* page icons (v28) */
 [data-icon]{display:flex;align-items:center;gap:.28em}
 .ico{width:1em;height:1em;color:var(--red);flex:none}
+.sage .shot{background:var(--bg)}
