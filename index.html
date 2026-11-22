@@ -2,172 +2,33 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="site-version" content="v17">
+<meta name="site-version" content="v19">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pohutukawa House Annex</title>
 <meta name="description" content="A one-bedroom annex in a Category B listed Rogue Baronial villa (1869) on Portobello promenade, Edinburgh's famous sea-swimming beach. Sea views over the Firth of Forth, wood burner, sauna 100 m away. Sleeps 2.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* VOICE occasion: calm, coastal, a little grand; a guest should feel the view and the fire
-   IDEA a Victorian seaside villa's printed guest brochure: big photographs, few words, a booking slip at the end
-   PICTURE the blue-hour bay window full bleed; the rooms follow as large photographs
-   COLOUR white; deep kitchen teal #24414a for bands; bedroom sage for quiet fields; pohutukawa crimson accent
-   TYPE Fraunces display + Inter text
-   LAYOUT laptop: full-bleed photo, title in a teal slab bottom-left, facts ruled below; phone: photo, then slab, then facts */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e171a);--ink:light-dark(#14212a,#e6edee);--soft:light-dark(#4a5a60,#a9b7ba);--teal:#24414a;--teal-ink:#eef4f3;--sage:light-dark(#e3eae0,#17231f);--line:light-dark(#d5ddd8,#26363a);--red:#c4232f;--red-ink:#ffffff}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
-*{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
-h1{font-size:clamp(36px,5vw,58px)}
-h2{font-size:clamp(30px,3.6vw,44px)}
-h3{font-size:22px;letter-spacing:-.01em}
-p{margin:0 0 1em;max-width:62ch}
-.band{padding-block:clamp(36px,5vw,80px);padding-inline:max(5vw,16px)}
-.wrap{max-width:1240px;margin:0 auto}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-/* header */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:10px max(5vw,16px)}
-.brand{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:20px;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
-.brand svg{flex:none}
-.nav{display:flex;gap:18px;flex-wrap:wrap}
-.nav a{text-decoration:none;color:var(--soft);font-weight:500;font-size:15px;padding:10px 0}
-.nav a:hover{color:var(--ink)}
-@media(max-width:720px){.nav{display:none}}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 22px;border-radius:999px;font:600 15.5px/1 Inter,sans-serif;text-decoration:none;border:0;cursor:pointer;background:var(--red);color:var(--red-ink);position:relative}
-.btn:hover{filter:brightness(1.08)}
-.btn:focus-visible,.ph:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
-.btn svg{flex:none}
-.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-
-/* placeholder badge + tooltip */
-.ph{position:absolute;top:12px;left:12px;z-index:3;background:var(--red);color:#fff;border:0;border-radius:6px;font:600 13px/1 Inter,sans-serif;padding:8px 10px;cursor:help}
-.ph .tip{position:absolute;top:calc(100% + 8px);left:0;width:min(320px,78vw);background:#111c20;color:#f1f5f5;font:400 14px/1.45 Inter,sans-serif;text-align:left;padding:12px 14px;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.25);opacity:0;visibility:hidden;transition:opacity .15s;pointer-events:none}
-.ph .tip b{display:block;margin-bottom:4px;color:#ffb3b8}
-.ph:hover .tip,.ph:focus .tip,.ph:focus-within .tip{opacity:1;visibility:visible}
-.btn .ph{position:static;margin-left:4px;background:#fff;color:var(--red);padding:5px 7px;font-size:12px}
-.btn .ph .tip{left:auto;right:0}
-
-/* hero */
-.hero{position:relative;min-height:min(86svh,860px);display:grid;align-items:end;background:var(--teal)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
-.hero .slab{position:relative;z-index:2;margin:0 0 clamp(16px,4vw,48px) max(5vw,16px);max-width:560px;background:var(--teal);color:var(--teal-ink);padding:clamp(22px,3vw,36px);border-radius:4px}
-.hero .slab p{color:#c9d9d8;font-size:17px;margin:14px 0 22px}
-.hero .ph{top:auto;bottom:auto;left:auto;right:max(5vw,16px);top:84px}
-@media(max-width:600px){.hero{display:block;min-height:0}.hero>img{position:static;height:62svh}.hero .slab{margin:0;max-width:none;border-radius:0}.hero .ph{top:12px;right:auto;left:12px}}
-
-/* facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5em,1fr));border-bottom:1px solid var(--line)}
-.facts div{padding:20px max(2vw,14px);border-right:1px solid var(--line)}
-.facts div:last-child{border-right:0}
-.facts b{display:block;font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600}
-.facts span{color:var(--soft);font-size:14.5px}
-@media(max-width:600px){.facts div:last-child:nth-child(odd){grid-column:1/-1}}
-
-/* split sections */
-.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,64px);align-items:center}
-.split.rev{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
-.split.rev .txt{order:2}
-@media(max-width:820px){.split,.split.rev{grid-template-columns:minmax(0,1fr)}.split.rev .txt{order:0}}
-.txt h2{margin-bottom:18px}
-
-/* photos */
-figure{margin:0;position:relative;overflow:visible}
-figure .frame{position:relative;border-radius:4px;overflow:hidden;background:var(--sage)}
-figure img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .5s}
-figure:hover img{transform:scale(1.02)}
-figcaption{font-size:14px;color:var(--soft);margin-top:8px}
-.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:28px}
-.gallery figure{grid-column:span 2}
-.gallery .big{grid-column:span 4;grid-row:span 2}
-.gallery .half{grid-column:span 3}
-.gallery .frame{aspect-ratio:4/3}
-.gallery .big .frame{aspect-ratio:auto;height:calc(100% - 30px)}
-.gallery .tall .frame{aspect-ratio:3/4}
-.gallery .half .frame{aspect-ratio:16/9}
-.gallery .wide{grid-column:1/-1}
-.gallery .wide .frame{aspect-ratio:21/9}
-.gallery .wide img{object-position:center 70%}
-@media(max-width:820px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery figure,.gallery .half{grid-column:span 1}.gallery .big{grid-column:span 2;grid-row:auto}.gallery .big .frame{aspect-ratio:4/3;height:auto}.gallery .tall .frame{aspect-ratio:4/3}.gallery .wide .frame{aspect-ratio:4/3}}
-@media(max-width:480px){.gallery{grid-template-columns:minmax(0,1fr)}.gallery figure,.gallery .big,.gallery .half{grid-column:auto}}
-.room{border-top:1px solid var(--line);padding-top:clamp(28px,4vw,52px);margin-top:clamp(28px,4vw,52px)}
-.room:first-of-type{border-top:0;margin-top:0;padding-top:0}
-.roomhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(16px,4vw,56px);align-items:end}
-@media(max-width:720px){.roomhead{grid-template-columns:minmax(0,1fr)}}
-.roomhead p{margin:0}
-
-/* amenities */
-.sage{background:var(--sage)}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:clamp(20px,3vw,44px);margin-top:28px}
-.cols h3{padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:12px}
-.cols ul{list-style:none;margin:0;padding:0}
-.cols li{padding:9px 0;border-bottom:1px solid var(--line)}
-.cols p{margin:0}
-.aerial{margin-top:28px}
-.aerial .frame{aspect-ratio:16/9}
-.patio{margin-top:28px}
-.patio .frame{aspect-ratio:16/9}
-.patio img{object-position:center 30%}
-
-/* location */
-.places{display:grid;gap:0;margin-top:8px}
-.places div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
-.places span{color:var(--soft);white-space:nowrap}
-
-/* book */
-.book{background:var(--teal);color:var(--teal-ink)}
-.book .split{align-items:start}
-.book p{color:#c9d9d8}
-.rules{list-style:none;padding:0;margin:0;display:grid;gap:0}
-.rules li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);display:flex;gap:12px}
-.rules li svg{flex:none;margin-top:4px}
-.mail{font-weight:600;color:#fff}
-footer{padding:28px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
-
-.years{list-style:none;margin:0;padding:0}
-.years li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.years li:first-child{border-top:2px solid var(--ink)}
-.years b{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;white-space:nowrap}
-.years span{color:var(--soft)}
-/* lightbox */
-dialog{border:0;padding:0;background:transparent;max-width:min(1400px,94vw);max-height:92vh}
-dialog::backdrop{background:rgba(8,14,16,.88)}
-dialog img{max-height:84vh;width:auto;margin:0 auto;border-radius:4px}
-dialog p{color:#e6edee;text-align:center;margin:10px auto 0;font-size:15px}
-dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:#111;font-size:24px;cursor:pointer}
-</style>
+<link rel="stylesheet" href="site.css?v=19">
 </head>
 <body>
 
 <header class="top"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Pohutukawa House, home">
+  <a class="brand" href="index.html" aria-label="Pohutukawa House, home">
     <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><g fill="#c4232f"><circle cx="14" cy="14" r="3.2"/></g><g stroke="#c4232f" stroke-width="1.6" stroke-linecap="round"><path d="M14 10.5V3M14 17.5V25M10.5 14H3M17.5 14H25M11.5 11.5L6 6M16.5 16.5L22 22M16.5 11.5L22 6M11.5 16.5L6 22"/></g><g fill="#c4232f"><circle cx="14" cy="3" r="1.6"/><circle cx="14" cy="25" r="1.6"/><circle cx="3" cy="14" r="1.6"/><circle cx="25" cy="14" r="1.6"/><circle cx="6" cy="6" r="1.6"/><circle cx="22" cy="22" r="1.6"/><circle cx="22" cy="6" r="1.6"/><circle cx="6" cy="22" r="1.6"/></g></svg>
     Pohutukawa House
   </a>
-  <nav class="nav" aria-label="Sections">
-    <a href="#stay">The Annex</a><a href="#rooms">Rooms</a><a href="#features">What's included</a><a href="#swim">Swimming</a><a href="#location">Location</a><a href="#history">History</a><a href="#book">Book</a>
-  </nav>
+  <nav class="nav" aria-label="Pages"><a href="index.html" aria-current="page">Home</a><a href="annex.html">The Annex</a><a href="portobello.html">Portobello</a><a href="house.html">The House</a><a href="#book">Book</a></nav>
   <a class="btn airbnb" href="#book">Book on Airbnb</a>
 </div></header>
 
 <main id="top">
 <section class="hero" aria-label="The view from the living room">
-  <img src="images/hero-bay-bluehour.jpg?v=17" alt="The living room bay window at blue hour, looking over the promenade railings to the Firth of Forth" fetchpriority="high">
+  <img src="images/hero-bay-bluehour.jpg?v=19" alt="The living room bay window at blue hour, looking over the promenade railings to the Firth of Forth" fetchpriority="high">
   <div class="slab">
     <h1>The Annex at Pohutukawa House</h1>
     <p>A one-bedroom Victorian hideaway on Portobello promenade, Edinburgh's famous swimming beach. The sand is across the road, and the Firth of Forth fills the bay window.</p>
-    <div class="btns"><a class="btn airbnb" href="#book">Book on Airbnb</a><a class="btn ghost" href="#rooms">See the rooms</a></div>
+    <div class="btns"><a class="btn airbnb" href="#book">Book on Airbnb</a><a class="btn ghost" href="annex.html">See the rooms</a></div>
   </div>
 </section>
 
@@ -189,75 +50,13 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
   <div data-photo="front"></div>
 </div></section>
 
-<section class="band" id="rooms" style="padding-top:0"><div class="wrap">
-  <div class="room">
-    <div class="roomhead"><h2>Living room and kitchen</h2><p>One open room under a high Victorian ceiling, with a skylight high above the hall end. Sofa in the bay, wingback by the fire, and a breakfast bar for three on the island.</p></div>
-    <div class="gallery" data-set="living"></div>
+<section class="band sage"><div class="wrap">
+  <h2>Explore</h2>
+  <div class="tiles">
+    <a class="tile" href="annex.html"><div class="frame"><img loading="lazy" src="images/living-bay.jpg?v=19" alt="The living room bay window with sofa and wingback chair"></div><h3>The Annex</h3><p>Living room and kitchen, bedroom, shower room and your private patio.</p><span>See the rooms</span></a>
+    <a class="tile" href="portobello.html"><div class="frame"><img loading="lazy" src="images/aerial-beach.jpg?v=19" alt="Aerial view of Portobello beach and promenade"></div><h3>Portobello</h3><p>Sea swimming, saunas, food and drink, and the beach's seaside past.</p><span>Explore the area</span></a>
+    <a class="tile" href="house.html"><div class="frame"><img loading="lazy" src="images/house-front.jpg?v=19" alt="The front of Pohutukawa House with its turret"></div><h3>The House</h3><p>A listed 1869 Rogue Baronial villa, from hotel and bar to family home.</p><span>Read its story</span></a>
   </div>
-  <div class="room">
-    <div class="roomhead"><h2>Bedroom</h2><p>Quiet and at the back of the house. A cane-headed king-size bed, soft bedding, bedside lamps, and shutters for proper darkness.</p></div>
-    <div class="gallery" data-set="bedroom"></div>
-  </div>
-  <div class="room">
-    <div class="roomhead"><h2>Shower room</h2><p>En-suite, with a level-access rainfall shower and built-in bench, a heated towel rail, and a backlit mirror with demister.</p></div>
-    <div class="gallery" data-set="shower"></div>
-  </div>
-  <div class="room">
-    <div class="roomhead"><h2>Patio</h2><p>Your own patio, for your exclusive use, with a table and two chairs. Tucked against the old garden wall, it's the spot for morning coffee or a drink after a swim.</p></div>
-    <div class="gallery" data-set="patio"></div>
-  </div>
-</div></section>
-
-<section class="band sage" id="features"><div class="wrap">
-  <h2>What's included</h2>
-  <div class="cols">
-    <div><h3>Kitchen</h3><ul><li>Oven and induction hob</li><li>Large fridge-freezer</li><li>Kettle, toaster and cafetière</li><li>Pots, pans and tableware</li><li>Dishwasher</li><li>Washing machine and tumble dryer</li><li>Cordless hoover and spray mop in the hall cupboard, dustpan and brush under the sink</li></ul></div>
-    <div><h3>Comfort</h3><ul><li>Wood-burning stove</li><li>Original working shutters, no curtains</li><li>TV, books and games</li><li>Heated towel rail</li><li>Linen and towels</li><li>Patio for your exclusive use, with table and chairs</li></ul></div>
-    <div><h3>Peace of mind</h3><ul><li>Grade A fire alarm system</li><li>CO alarms linked to the fire alarm</li><li>Chimney swept every year</li><li>Hosts living in the main house</li><li>Private entrance</li><li>Fully self-contained, with the connecting doors to the main house kept locked</li></ul></div>
-  </div>
-</div></section>
-
-<section class="band" id="swim"><div class="wrap">
-  <div class="roomhead"><h2>Swim, sauna, repeat</h2><p>Portobello is one of Scotland's best-known sea-swimming beaches. All year round, whatever the weather, swimmers are in the Forth at dawn, at lunch and at sunset. The Annex is right in the middle of it.</p></div>
-  <div class="aerial"><div data-photo="aerial"></div></div>
-  <div class="cols">
-    <div><h3>Sea swimming</h3><p>Join the regulars. The Edinburgh Bluetits and the Edinburgh Blue Balls swim here every week, and newcomers are welcome. Never swim alone, and check the tide and conditions first.</p></div>
-    <div><h3>Soul Water Sauna</h3><p>Edinburgh's first wood-fired sauna sits on the promenade, about 100 metres from the door. Book a slot, dip in the sea, warm up, go again.</p></div>
-    <div><h3>Victorian Turkish baths</h3><p>Portobello Swim Centre, built in 1898, still has its original Turkish baths and steam room, along with an indoor pool for days the sea is too wild.</p></div>
-  </div>
-</div></section>
-
-<section class="band sage" id="location"><div class="wrap split rev">
-  <div class="txt">
-    <h2>Portobello, Edinburgh's beach</h2>
-    <p>Portobello is Edinburgh's seaside: two miles of sand, a Victorian promenade, cafés, ice cream and independent shops. Walk out of the gate and you're on it.</p>
-    <p>The city centre is about three miles away, an easy bus ride. That puts you close enough for the Festival in August and Hogmanay at New Year, then back by the sea to sleep.</p>
-    <div class="places">
-      <div>Promenade and beach<span>On the doorstep</span></div>
-      <div>Soul Water Sauna<span>About 100 m</span></div>
-      <div>Edinburgh city centre<span>About 3 miles</span></div>
-      <div>Festival and Fringe<span>August</span></div>
-      <div>Hogmanay<span>New Year</span></div>
-    </div>
-  </div>
-  <div data-photo="city"></div>
-</div></section>
-
-<section class="band" id="history"><div class="wrap split">
-  <div class="txt">
-    <h2>A house with a story</h2>
-    <p>Pohutukawa House was designed around 1869 by James Campbell Walker, a leading Edinburgh architect better known for schools and civic buildings. It was one of three villas he built side by side on the Portobello waterfront, each in an eclectic Baronial style and each a different design.</p>
-    <p>Today it's Category B listed and sits within the Portobello Conservation Area. Its listing calls it Rogue Baronial, a fair description of all that turret, carving and invention.</p>
-    <p>Locals may remember it as a hotel, or as the Dalriada bar. Now it's a home again, and The Annex is its newest chapter.</p>
-  </div>
-  <ol class="years">
-    <li><b>1869</b><span>Built by James Campbell Walker, one of three waterfront villas</span></li>
-    <li><b>c. 1970</b><span>Becomes the Temple Hall Hotel</span></li>
-    <li><b>1989</b><span>Listed Category B</span></li>
-    <li><b>2000s</b><span>The Dalriada bar opens downstairs, with homes above</span></li>
-    <li><b>2020</b><span>The Dalriada closes its doors</span></li>
-    <li><b>Today</b><span>Restored as a family home, with The Annex for guests</span></li>
-  </ol>
 </div></section>
 
 <section class="band book" id="book"><div class="wrap split">
@@ -282,75 +81,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 
 <dialog id="lb" aria-label="Photo"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
 
-<script>
-{
-// Paste the Airbnb listing link here once it's live, e.g. "https://www.airbnb.co.uk/rooms/123456"
-const AIRBNB_URL = "";
 
-const P = {
-  hero:   {fix:"Retake at blue hour with the chandelier switched off and only the lamps on. Use a tripod and timer and step out of the window's reflection (you're faintly visible in the centre pane). Shoot about 10 minutes earlier so the railings keep their detail."},
-};
-P.front = {src:"house-front", alt:"The front of Pohutukawa House, a listed Rogue Baronial villa in sandstone with a turret; The Annex is the single-storey wing with the bay window on the right", cap:"The Annex is the bay-windowed wing on the right", fix:"This looks like a landscaping visualisation, with added planting, birds and retouched windows. Replace it with a real photo once the front garden is finished, so guests see the house as it really is."};
-P.city = {src:"aerial-city", alt:"Aerial view of Pohutukawa House on Portobello promenade, with Arthur's Seat and the Pentland Hills behind", cap:"Beach in front, Arthur's Seat behind"};
-P.aerial = {src:"aerial-beach", alt:"Aerial view of Pohutukawa House with its turret, the promenade, Portobello beach and the Firth of Forth", cap:"Pohutukawa House, the promenade and two miles of sand", fix:"Lovely shot. Refly once the front garden is landscaped, ideally on a brighter day or at golden hour, so the bare soil by the promenade railings disappears."};
-const ISLAND = {src:"living-island", alt:"Living room seen from the kitchen island, bay window beyond", cap:"From the island to the bay", fix:"The windows are blown out, so the sea disappears. Shoot with HDR on or on a duller day, and hide the TV and floor-lamp cables."};
-const SETS = {
-  living: [
-    {src:"living-bay", alt:"Living room with sofa in the bay window, wingback chair and pendant lights", cap:"The bay, the fire and the island", big:1},
-    {src:"fireplace", alt:"Marble fireplace with wood burner, log baskets and a wingback chair", cap:"Wood burner in the original marble fireplace", fix:"You're reflected in the mirror above the fireplace. Shoot from a little to one side, or crop and edit the reflection out."},
-    {src:"kitchen-wide", alt:"Teal kitchen with island, breakfast stools and artwork", cap:"Kitchen with breakfast bar for three", fix:"You're reflected in the black glass splashback. Shoot from a different angle, and close the log basket lid."},
-    {src:"kitchen-units", alt:"Teal kitchen units with built-in oven and sink", cap:"Oven, induction hob and plenty of storage"},
-    ISLAND,
-    {src:"skylight", alt:"High skylight above the hallway end of the living room, with original panelled doors below", cap:"High skylight over the hall end of the room", top:1}
-  ],
-  bedroom: [
-    {src:"bedroom-front", alt:"Bedroom with cane-headed bed, bedside lamps and framed jellyfish prints", cap:"King-size bed under the jellyfish prints", big:1, fix:"Press or smooth the bedding so it looks crisp, and hang a few matching wooden hangers on the rail."},
-    {src:"bedroom-lamps", alt:"Bedroom in warm lamplight with sash window and shutters", cap:"Lamplight and original shutters", fix:"Retake once the privacy coating is on the lower pane, so the garden works aren't visible. Smooth the bedding too."},
-    {src:"bedroom-chair", alt:"Bedroom with armchair, kilim rug and mountain prints", cap:"Armchair and room to unpack", fix:"Smooth the bedding and throw before reshooting."}
-  ],
-  patio: [
-    {src:"patio", alt:"Bistro table and two chairs on the stone-flagged patio against the old garden wall", cap:"Table for two against the old garden wall", half:1},
-    {src:"patio-sea", alt:"The patio at sunset, with the promenade railings and the Firth of Forth beyond", cap:"Sunset over the Forth from the patio", half:1, fix:"Great angle with the sunset and the sea. Retake once the front garden is finished, so the covers, soil heaps and stacked flags are gone."}
-  ],
-  shower: [
-    {src:"shower-vanity", alt:"Shower room with backlit round mirror, long white vanity and walk-in shower", cap:"Backlit mirror with demister", big:1},
-    {src:"shower-walkin", alt:"Walk-in rainfall shower with tiled bench and LED light strip", cap:"Walk-in rainfall shower", tall:1},
-    {src:"shower-mirror", alt:"Vanity with curved basin, sage tiles and heated towel rail", cap:"Heated towel rail and curved basin"},
-    {src:"shower-bench", alt:"Level-access walk-in shower with rainfall head, built-in bench, LED strip and heated towel rail", cap:"The walk-in shower with built-in bench", wide:1, fix:"Close the bedroom door so it isn't in shot, and make sure the floor is spotless."}
-  ]
-};
-
-const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
-const badge = fix => `<button type="button" class="ph" aria-label="Placeholder photo. ${esc(fix)}">Placeholder<span class="tip" role="tooltip"><b>Retake needed</b>${esc(fix)}</span></button>`;
-const VER = (document.querySelector('meta[name="site-version"]')?.content || "").replace("v","");
-const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" tall":""}${p.half?" half":""}${p.wide?" wide":""}"><div class="frame">${p.fix?badge(p.fix):""}<img loading="lazy"${p.top?' style="object-position:center 8%"':''} src="images/${p.src}.jpg?v=${VER}" alt="${esc(p.alt)}" data-cap="${esc(p.cap)}"></div><figcaption>${p.cap}</figcaption></figure>`;
-
-for (const el of document.querySelectorAll("[data-set]")) el.innerHTML = SETS[el.dataset.set].map(p => fig(p)).join("");
-for (const el of document.querySelectorAll("[data-photo]")) el.outerHTML = fig(P[el.dataset.photo]);
-document.querySelector(".hero").insertAdjacentHTML("beforeend", badge(P.hero.fix));
-
-// Airbnb buttons: live link if set, otherwise a placeholder note
-for (const a of document.querySelectorAll(".airbnb")) {
-  if (AIRBNB_URL) { a.href = AIRBNB_URL; a.target = "_blank"; a.rel = "noopener"; }
-  else a.insertAdjacentHTML("beforeend", badge("Add the Airbnb listing link once it's live: paste it into AIRBNB_URL near the bottom of index.html and every Book on Airbnb button will use it."));
-}
-
-// badges shouldn't trigger links or the lightbox
-document.addEventListener("click", e => {
-  const ph = e.target.closest(".ph");
-  if (ph) { e.preventDefault(); e.stopPropagation(); ph.focus(); return; }
-  const img = e.target.closest("figure img");
-  if (img) {
-    const d = document.getElementById("lb");
-    d.querySelector("img").src = img.src; d.querySelector("img").alt = img.alt;
-    d.querySelector("p").textContent = img.dataset.cap || "";
-    if (d.showModal) d.showModal();
-  }
-}, true);
-const lb = document.getElementById("lb");
-lb.querySelector("button").addEventListener("click", () => lb.close());
-lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
-}
-</script>
+<script src="site.js?v=19"></script>
 </body>
 </html>
