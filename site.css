@@ -240,13 +240,12 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 @media(max-width:600px){.gallery3{grid-template-columns:minmax(0,1fr)}}
 /* House page: intro on sage, timeline on white (v43) */
 #history .intro{max-width:68ch}
-#timeline .years{columns:2;column-gap:clamp(32px,5vw,72px);border-top:2px solid var(--ink)}
-#timeline .years li{break-inside:avoid}
+#timeline .years{max-width:720px;border-top:2px solid var(--ink)}
 #timeline .years li:first-child{border-top:0}
-@media(max-width:820px){#timeline .years{columns:1}}
 /* timeline thumbnails (v43) */
 .years li:has(.tthumb){grid-template-columns:6.5em minmax(0,1fr) 72px}
 .tthumb{width:72px;height:72px;margin:0;border-radius:4px;overflow:hidden;align-self:center;background:var(--sage)}
 .tthumb img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;display:block}
 .tthumb.tbd{display:block;background:repeating-linear-gradient(45deg,var(--sage),var(--sage) 6px,color-mix(in srgb,var(--sage) 80%,var(--ink) 6%) 6px,color-mix(in srgb,var(--sage) 80%,var(--ink) 6%) 12px);cursor:help}
 @media(max-width:600px){.years li{grid-template-columns:4.6em minmax(0,1fr)}.years li:has(.tthumb){grid-template-columns:4.6em minmax(0,1fr) 60px}.years b{font-size:20px}.tthumb{width:60px;height:60px}}
+#timeline .years li:has(.tthumb){grid-template-columns:6.5em minmax(0,1fr) 88px}#timeline .tthumb{width:88px;height:88px}@media(max-width:600px){#timeline .years li:has(.tthumb){grid-template-columns:4.6em minmax(0,1fr) 60px}#timeline .tthumb{width:60px;height:60px}}
