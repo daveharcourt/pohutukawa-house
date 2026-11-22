@@ -222,3 +222,7 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 [data-icon]{display:flex;align-items:center;gap:.28em}
 .ico{width:1em;height:1em;color:var(--red);flex:none}
 .sage .shot{background:var(--bg)}
+.feature .media{min-width:0}
+.credit{font-size:12.5px;color:var(--soft);margin:8px 0 0}
+.credit a{color:inherit}
+.shot figure{position:absolute;inset:0;margin:0}

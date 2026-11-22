@@ -54,18 +54,24 @@ const ICONS = {
 const icon = k => `<svg class="ico" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">${ICONS[k]}</svg>`;
 for (const h of document.querySelectorAll("[data-icon]")) h.insertAdjacentHTML("afterbegin", icon(h.dataset.icon));
 
-// Edinburgh feature photos: once a photo is in /images, add src:"<file name>" to its line and the placeholder goes
+// Edinburgh feature photos, from Wikimedia Commons under Creative Commons licences: keep the credits
 const NEED = {
-  fringeWide: {label:"Overall shot", alt:"The Royal Mile packed during the Edinburgh Festival Fringe", cap:"The Royal Mile packed during the Edinburgh Festival Fringe", fix:"The big overall shot: the Royal Mile in August, packed from end to end, ideally from above or with St Giles in view. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-fringe-wide.jpg"},
-  fringeCrowd: {label:"People shot", alt:"A street performer and crowd on the Royal Mile", cap:"A street performer and crowd on the Royal Mile", fix:"The people shot: a street performer with the crowd around them. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-fringe-crowd.jpg"},
-  hogmanayWide: {label:"Overall shot", alt:"Midnight fireworks over Edinburgh Castle at Hogmanay", cap:"Midnight fireworks over Edinburgh Castle at Hogmanay", fix:"The big overall shot: the midnight fireworks over the Castle, seen across the city. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-hogmanay-wide.jpg"},
-  hogmanayCrowd: {label:"People shot", alt:"Revellers at the Hogmanay street party", cap:"Revellers at the Hogmanay street party", fix:"The people shot: the street party or the torchlight procession, crowds and flames. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-hogmanay-crowd.jpg"},
-  castleWide: {label:"Overall shot", alt:"Edinburgh Castle on its rock above Princes Street Gardens", cap:"Edinburgh Castle on its rock above Princes Street Gardens", fix:"The big overall shot: the Castle on its rock, ideally from Princes Street Gardens. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-castle-wide.jpg"},
-  castleCrowd: {label:"People shot", alt:"Visitors on the Castle ramparts looking out over the city", cap:"Visitors on the Castle ramparts looking out over the city", fix:"The people shot: visitors on the esplanade or ramparts, or at the One O'Clock Gun. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-castle-crowd.jpg"},
+  fringeWide: {src:"edinburgh-fringe-wide", alt:"The Royal Mile packed during the Edinburgh Festival Fringe", cap:"The Royal Mile and the Tron Kirk in festival season", by:"Iain Lees", lic:"CC BY-SA 2.0", licUrl:"https://creativecommons.org/licenses/by-sa/2.0", page:"https://commons.wikimedia.org/wiki/File:Edinburgh%E2%80%99s_Royal_Mile_and_the_Tron_Kirk,_during_the_International_Festival_-_geograph.org.uk_-_8122239.jpg"},
+  fringeCrowd: {src:"edinburgh-fringe-crowd", alt:"A street performer and crowd on the Royal Mile", cap:"A fire performer draws the crowd on the Royal Mile", by:"marsupium photography", lic:"CC BY-SA 2.0", licUrl:"https://creativecommons.org/licenses/by-sa/2.0", page:"https://commons.wikimedia.org/wiki/File:On_the_Royal_Mile_(28674848014).jpg"},
+  hogmanayWide: {src:"edinburgh-hogmanay-wide", alt:"Midnight fireworks over Edinburgh Castle at Hogmanay", cap:"Midnight fireworks over the city from Calton Hill", by:"Robbie Shade", lic:"CC BY 2.0", licUrl:"https://creativecommons.org/licenses/by/2.0", page:"https://commons.wikimedia.org/wiki/File:EdinburghNYE.jpg"},
+  hogmanayCrowd: {src:"edinburgh-hogmanay-crowd", alt:"Revellers at the Hogmanay street party", cap:"The torchlight procession", by:"photojenni", lic:"CC BY 2.0", licUrl:"https://creativecommons.org/licenses/by/2.0", page:"https://commons.wikimedia.org/wiki/File:Procession_Calton_Hill.jpg"},
+  castleWide: {src:"edinburgh-castle-wide", alt:"Edinburgh Castle on its rock above Princes Street Gardens", cap:"Edinburgh Castle on its volcanic rock", by:"Nacckers", lic:"CC BY-SA 4.0", licUrl:"https://creativecommons.org/licenses/by-sa/4.0", page:"https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_Autumn.jpg"},
+  castleCrowd: {src:"edinburgh-castle-crowd", alt:"Visitors on the Castle ramparts looking out over the city", cap:"Visitors climbing through the Castle", by:"Lewis Clarke", lic:"CC BY-SA 2.0", licUrl:"https://creativecommons.org/licenses/by-sa/2.0", page:"https://commons.wikimedia.org/wiki/File:Edinburgh_,_Edinburgh_Castle_-_geograph.org.uk_-_4947497.jpg"},
 };
 for (const el of document.querySelectorAll("[data-need]")) {
   const n = NEED[el.dataset.need];
-  el.innerHTML = n.src ? `<figure style="margin:0"><img loading="lazy" src="images/${n.src}.jpg?v=${VER}" alt="${esc(n.alt)}" data-cap="${esc(n.cap)}"></figure>` : `<span class="need">${n.label}</span>${badge(n.fix, "Image needed")}`;
+  const credit = n.by ? ` Photo: ${n.by}, ${n.lic}, cropped` : "";
+  el.innerHTML = n.src ? `<figure style="margin:0"><img loading="lazy" src="images/${n.src}.jpg?v=${VER}" alt="${esc(n.alt)}" data-cap="${esc(n.cap + "." + credit)}"></figure>` : `<span class="need">${n.label}</span>${badge(n.fix, "Image needed")}`;
+}
+// photo credits under each pair (required by the Creative Commons licences)
+for (const pair of document.querySelectorAll(".pair")) {
+  const ns = [...pair.querySelectorAll("[data-need]")].map(e => NEED[e.dataset.need]).filter(n => n.by);
+  if (ns.length) pair.insertAdjacentHTML("afterend", `<p class="credit">Photos: ${ns.map(n => `<a href="${n.page}" target="_blank" rel="noopener">${n.by}</a> (<a href="${n.licUrl}" target="_blank" rel="noopener">${n.lic}</a>)`).join(", ")}, cropped</p>`);
 }
 { const h=document.querySelector(".hero"); if (h) h.insertAdjacentHTML("beforeend", badge(P.hero.fix)); }
 
