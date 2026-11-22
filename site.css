@@ -263,4 +263,4 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .cdots{display:flex;justify-content:center;gap:8px;margin-top:10px}
 .cdots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:color-mix(in srgb,var(--ink) 25%,transparent);cursor:pointer}
 .cdots button.on{background:var(--red)}
-.pagehead:has(.carousel),.pagehead:has(.duo){padding-bottom:clamp(28px,3.5vw,48px)}
+.pagehead:has(.carousel),.pagehead:has(.duo){padding-bottom:clamp(18px,2.2vw,30px)}
