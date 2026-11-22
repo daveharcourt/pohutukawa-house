@@ -176,3 +176,5 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .plan h3{margin-bottom:12px}
 .moneyshot .frame{aspect-ratio:16/9}
 @media(max-width:600px){.moneyshot .frame{aspect-ratio:4/3}}
+.pagehead p.bigsell{color:var(--ink);font-size:clamp(18px,1.8vw,21px);font-weight:500;margin-top:14px;max-width:62ch;padding-left:16px;border-left:3px solid var(--red)}
+.pagehead:has(.bigsell){padding-bottom:clamp(28px,3vw,44px)}
