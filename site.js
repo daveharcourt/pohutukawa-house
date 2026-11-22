@@ -38,12 +38,25 @@ const SETS = {
 };
 
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
-const badge = fix => `<button type="button" class="ph" aria-label="Placeholder photo. ${esc(fix)}">Placeholder<span class="tip" role="tooltip"><b>Retake needed</b>${esc(fix)}</span></button>`;
+const badge = (fix, head="Retake needed") => `<button type="button" class="ph" aria-label="Placeholder photo. ${esc(fix)}">Placeholder<span class="tip" role="tooltip"><b>${head}</b>${esc(fix)}</span></button>`;
 const VER = (document.querySelector('meta[name="site-version"]')?.content || "").replace("v","");
 const fig = (p, cls="") => `<figure class="${cls}${p.big?" big":""}${p.tall?" tall":""}${p.half?" half":""}${p.wide?" wide":""}"><div class="frame">${p.fix?badge(p.fix):""}<img loading="lazy"${p.top?' style="object-position:center 8%"':''} src="images/${p.src}.jpg?v=${VER}" alt="${esc(p.alt)}" data-cap="${esc(p.cap)}"></div><figcaption>${p.cap}</figcaption></figure>`;
 
 for (const el of document.querySelectorAll("[data-set]")) el.innerHTML = SETS[el.dataset.set].map(p => fig(p)).join("");
 for (const el of document.querySelectorAll("[data-photo]")) el.outerHTML = fig(P[el.dataset.photo]);
+// Edinburgh feature photos: once a photo is in /images, add src:"<file name>" to its line and the placeholder goes
+const NEED = {
+  fringeWide: {label:"Overall shot", alt:"The Royal Mile packed during the Edinburgh Festival Fringe", cap:"The Royal Mile packed during the Edinburgh Festival Fringe", fix:"The big overall shot: the Royal Mile in August, packed from end to end, ideally from above or with St Giles in view. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-fringe-wide.jpg"},
+  fringeCrowd: {label:"People shot", alt:"A street performer and crowd on the Royal Mile", cap:"A street performer and crowd on the Royal Mile", fix:"The people shot: a street performer with the crowd around them. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-fringe-crowd.jpg"},
+  hogmanayWide: {label:"Overall shot", alt:"Midnight fireworks over Edinburgh Castle at Hogmanay", cap:"Midnight fireworks over Edinburgh Castle at Hogmanay", fix:"The big overall shot: the midnight fireworks over the Castle, seen across the city. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-hogmanay-wide.jpg"},
+  hogmanayCrowd: {label:"People shot", alt:"Revellers at the Hogmanay street party", cap:"Revellers at the Hogmanay street party", fix:"The people shot: the street party or the torchlight procession, crowds and flames. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-hogmanay-crowd.jpg"},
+  castleWide: {label:"Overall shot", alt:"Edinburgh Castle on its rock above Princes Street Gardens", cap:"Edinburgh Castle on its rock above Princes Street Gardens", fix:"The big overall shot: the Castle on its rock, ideally from Princes Street Gardens. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-castle-wide.jpg"},
+  castleCrowd: {label:"People shot", alt:"Visitors on the Castle ramparts looking out over the city", cap:"Visitors on the Castle ramparts looking out over the city", fix:"The people shot: visitors on the esplanade or ramparts, or at the One O'Clock Gun. Your own, a VisitScotland media toolkit image (royalty free for promoting Scotland), or a Creative Commons photo with a credit. Save as images/edinburgh-castle-crowd.jpg"},
+};
+for (const el of document.querySelectorAll("[data-need]")) {
+  const n = NEED[el.dataset.need];
+  el.innerHTML = n.src ? `<figure style="margin:0"><img loading="lazy" src="images/${n.src}.jpg?v=${VER}" alt="${esc(n.alt)}" data-cap="${esc(n.cap)}"></figure>` : `<span class="need">${n.label}</span>${badge(n.fix, "Image needed")}`;
+}
 { const h=document.querySelector(".hero"); if (h) h.insertAdjacentHTML("beforeend", badge(P.hero.fix)); }
 
 // Airbnb buttons: live link if set, otherwise a placeholder note
